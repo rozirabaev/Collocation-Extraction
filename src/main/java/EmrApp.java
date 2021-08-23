@@ -18,23 +18,17 @@ public class EmrApp {
 
         aws aws_ = new aws();
         aws_.create_s3();
-     //   aws_.createBucket("dsass2bgujar");
+
         aws_.send_file("dsass2bgujar","ass2jar",jar_file);
         File stop_file = new File("stop_words.txt");
         aws_.create_s3();
         aws_.create_sqs();
-      //  aws_.create_queue("badCollocations");
-       // aws_.create_queue("goodCollocations");
-
-        //   aws_.createBucket("stopwordsbgu");
-     //  aws_.send_file("stopwordsbgu","stop",stop_file);
-     //   File input = new File("input");
-      //  aws_.send_file("dsass2bgujar","input",input);
+     
        AWSCredentials credentials =  new ProfileCredentialsProvider("./credentials", "default").getCredentials();
 
         AmazonElasticMapReduce mapReduce = new AmazonElasticMapReduceClient(credentials);
         mapReduce.setEndpoint("elasticmapreduce.us-east-1.amazonaws.com");
-      //  AmazonElasticMapReduce mapReduce = new AmazonElasticMapReduceClient(c)
+     
 
         //Step1
         //--------------------------------------------------------------------------------------
